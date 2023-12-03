@@ -1,0 +1,22 @@
+{% extends 'city/base.html' %}
+
+{% block greeting %}
+    <h1>Факты</h1>
+    <a href="{% url 'main' %}">Главная</a>
+    <a href="{% url 'news' %}">Новости</a>
+    <a href="{% url 'management' %}">Руководство города</a>
+    <a href="{% url 'contacts' %}">Контакты</a>
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for fact in facts %}
+
+        <li>
+            <h3>{{ fact.title }}</h3>
+            <p>{{ fact.content }}</p>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
