@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    {% block greeting %}
+    <h1>Главная</h1>
+    <a href="{% url 'news' %}">Новости</a>
+    <a href="{% url 'facts' %}">Факты</a>
+    <a href="{% url 'management' %}">Руководство города</a>
+    <a href="{% url 'contacts' %}">Контакты</a>
+    {% endblock %}
+</header>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
