@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <h1>Книги и авторы</h1>
+    <ul>
+        <li><a href="{% url 'writers' %}">Писатели</a></li>
+        <li><a href="{% url 'books' %}">Книги</a></li>
+    </ul>
+</header>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
