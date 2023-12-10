@@ -10,10 +10,14 @@
 {% block navigation %}
 <header>
     <h1>Автомобили</h1>
-    <h2><a href="{% url 'toyota' %}">Toyota</a></h2>
-    <h2><a href="{% url 'renault' %}">Renault</a></h2>
-    <h2><a href="{% url 'honda' %}">Honda</a></h2>
 </header>
+<div class="container">
+<div class="car">
+    <h3><a href="toyota/">Toyota</a></h3>
+    <h3><a href="honda/">Honda</a></h3>
+    <h3><a href="renault">Renault</a></h3>
+</div>
+</div>
 {% endblock %}
 {% block car %}
 
