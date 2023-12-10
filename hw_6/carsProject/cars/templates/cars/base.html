@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+{% block navigation %}
+<header>
+    <h1>Автомобили</h1>
+    <h2><a href="{% url 'toyota' %}">Toyota</a></h2>
+    <h2><a href="{% url 'renault' %}">Renault</a></h2>
+    <h2><a href="{% url 'honda' %}">Honda</a></h2>
+</header>
+{% endblock %}
+{% block car %}
+
+{% endblock %}
+</body>
+</html>

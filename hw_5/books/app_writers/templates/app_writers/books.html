@@ -1,0 +1,10 @@
+{% extends "app_writers/base.html" %}
+
+{% block content %}
+    <h2>Книги</h2>
+    <ul>
+        {% for book in books %}
+            <li><b>"{{ book.title }}"</b> от автора {{ book.writer }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

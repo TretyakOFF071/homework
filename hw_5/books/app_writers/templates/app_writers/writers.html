@@ -1,0 +1,10 @@
+{% extends "app_writers/base.html" %}
+
+{% block content %}
+    <h2>Писатели</h2>
+    <ul>
+        {% for writer in writers %}
+            <li>{{ writer.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
