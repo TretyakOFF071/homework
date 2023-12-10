@@ -1,0 +1,22 @@
+{% extends 'cars/base.html' %}
+
+{% block navigation %}
+<header>
+    <h1>Автомобили</h1>
+    <h2><a href="{% url 'main' %}">Главная</a></h2>
+    <h3><a href="{% url 'renault' %}">Renault</a></h3>
+    <h3><a href="{% url 'toyota' %}">Toyota</a></h3>
+</header>
+{% endblock %}
+
+{% block car %}
+<div class="container">
+    {% for car in honda %}
+        <div class="car">
+            <h3>Модель: {{ car.model }}</h3>
+            <p>Год выпуска: {{ car.year }}</p>
+            <p>Лошадиные силы: {{ car.horsepower }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

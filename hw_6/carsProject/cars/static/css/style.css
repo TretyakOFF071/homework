@@ -1,0 +1,29 @@
+body {
+   background-color: beige;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 50%;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: BurlyWood;
+}
+
+.container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.car{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: SandyBrown;
+    border-radius: 15px;
+}
