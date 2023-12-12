@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+{% block navigation %}
+<header>
+    <h1>Наушники</h1>
+</header>
+<div class="container">
+<div class="headphone">
+    <h3><a href="airpods_2/">Apple Airpods 2</a></h3>
+    <h3><a href="buds_4_pro/">Xiaomi Redmi Buds 4 pro</a></h3>
+    <h3><a href="freebuds_2">Huawei FreeBuds 2</a></h3>
+</div>
+</div>
+{% endblock %}
+{% block headphones %}
+
+{% endblock %}
+</body>
+</html>
