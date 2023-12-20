@@ -1,0 +1,18 @@
+{% extends 'app_headphones/main.html' %}
+
+{% block navigation %}
+<header>
+    <h1>Наушники</h1>
+</header>
+{% endblock %}
+
+{% block headphones %}
+<div class="container">
+    <div class="headphone">
+        <h1>{{ headphone.model }}</h1>
+        <p>Цвет: {{ headphone.color }}</p>
+        <p>Время работы: {{ headphone.charge }}</p>
+    </div>
+</div>
+{% endblock %}
+

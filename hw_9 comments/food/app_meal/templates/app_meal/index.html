@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ресторан</title>
+</head>
+<body>
+    <h1>Блюда</h1>
+    <ul>
+        {% for meal in meals %}
+            <li>
+                <h2>{{meal.name}}</h2>
+                <p>Ингредиенты: </p>
+                <ul>
+                    {% for ingredient in meal.ingredient.all %}
+                    <li>
+                        <p>{{ingredient.name}}</p>
+                    </li>
+                {% endfor %}
+                </ul>
+                <p>{{meal.price}} руб.</p>
+            </li>
+        {% empty %}
+        <h3>Блюд пока нет</h3>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for ingredient in ingredients %}
+            <li>
+                <p>Этот ингредиент <b>{{ingredient.name}}</b> встречается в блюдах:</p>
+                <ul>
+                    {% for meal in ingredient.meals.all %}
+                        <p>{{meal.name}}</p>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,9 +1,7 @@
 from django.urls import path
-from .views import toyota, honda, renault, main
+from .views import main, brand_cars
 
 urlpatterns = [
     path('', main, name='main'),
-    path('toyota/', toyota, name='toyota'),
-    path('honda/', honda, name='honda'),
-    path('renault/', renault, name='renault'),
+    path('<str:brand>/', brand_cars, name='brand_cars'),
 ]
