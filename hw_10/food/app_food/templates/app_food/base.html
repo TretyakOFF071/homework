@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<body>
+<header>
+    <h1>Shop app</h1>
+    <a href="{% url 'main' %}">Главная страница</a>
+    <a href="{% url 'catalog' %}">Каталог</a>
+</header>
+{% block products %}
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'app_food/base.html' %}
+
+{% block products %}
+
+<div>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'category' category.id %}" >{{category.name}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
+
