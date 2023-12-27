@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<main>
+    <header>
+        <h1>Блог новостей</h1>
+        <div class="links">
+            <a href="{% url 'news-list' %}">Новости</a>
+            <a href="{% url 'register-news' %}">Расскажи новость</a>
+        </div>
+        <div style="width: 75px; justify-content: space-around; background-color: orange; border: 1px solid black;">
+            {% if request.user.is_authenticated %}
+                <p>Вы {{request.user.username}}</p>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Log in</a>
+            {% endif %}
+        </div>
+    </header>
+    <div class="container">
+        {% block news_list %}
+        {% endblock %}
+        {% block news_form %}
+        {% endblock %}
+        {% block login_form %}
+       {% endblock %}
+    </div>
+</main>
+</body>
+</html>
