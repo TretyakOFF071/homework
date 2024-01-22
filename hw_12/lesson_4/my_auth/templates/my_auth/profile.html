@@ -1,0 +1,9 @@
+{% extends 'my_auth/base.html' %}
+
+{% block main %}
+  <h1>Личный кабинет</h1>
+  <p>Имя пользователя: {{ user.username }}</p>
+  <p>Email: {{ user.email }}</p>
+  <p>Дата рождения: {{ user.profile.birthday }}</p>
+  <p>Телефон: {{ user.profile.tel }}</p>
+{% endblock %}
