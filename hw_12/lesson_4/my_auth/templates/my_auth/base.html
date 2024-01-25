@@ -11,9 +11,9 @@
         <div style="display:flex;">
             <a class="me-5" href="{% url 'record_create' %}">Create record</a>
             {% if request.user.is_authenticated %}
-                <div class="container">
-                    <p>Вы <a class="me-2" href="{% url 'profile' %}">{{request.user.username}}</a></p>
-                    <img >
+                <div class="container d-inline-flex p-2">
+                    <p>Вы <a class="me-3" href="{% url 'profile' %}">{{request.user.username}}</a></p>
+                    <img src="{{ user.profile.avatar.url }}" style="width: 40px; height: 40px; border-radius: 50%">
                 </div>
                 <a class="me-2" href="{% url 'logout' %}">Logout</a>
             {% else %}

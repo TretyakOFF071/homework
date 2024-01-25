@@ -11,10 +11,11 @@ class UserForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
 
     birthday = forms.DateField(widget=forms.DateInput)
+    avatar = forms.ImageField(widget=forms.FileInput(attrs={'multiple': 'multiple'}), required=False)
 
     class Meta:
         model = Profile
-        fields = ('birthday', 'tel')
+        fields = ('birthday', 'tel', 'avatar')
 
 class RecordForm(forms.ModelForm):
 

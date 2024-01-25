@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LogoutView
 from django.core.files import images
@@ -42,17 +43,21 @@ def logout_view(request):
 def register_view(request, *args, **kwargs):
     if request.method == 'POST':
         user_form = UserForm(request.POST)
-        profile_form = ProfileForm(request.POST)
+        profile_form = ProfileForm(request.POST, request.FILES)
 
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
             birthday = profile_form.cleaned_data['birthday']
             tel = profile_form.cleaned_data['tel']
-            Profile.objects.create(
+            avatar = profile_form.cleaned_data['avatar']
+            profile = Profile.objects.create(
                 user=user,
                 birthday=birthday,
-                tel=tel
+                tel=tel,
+                avatar=avatar
             )
+            profile.save()
+
             username = user_form.cleaned_data['username']
             raw_password = user_form.cleaned_data['password1']
             auth_user = authenticate(username=username, password=raw_password)
@@ -84,6 +89,8 @@ class RecordFormView(LoginRequiredMixin, View):
             new_record = record_form.save(commit=False)
             new_record.user_id = request.user.profile.id
             new_record.save()
+            request.user.profile.news_num += 1
+            request.user.profile.save()
             images = request.FILES.getlist('image')
             for i_img in images:
                 instance = ImagesRecord(image=i_img, record=new_record)
@@ -100,4 +107,5 @@ def record_detail(request, pk):
 
 
 def profile_view(request):
-    return render(request, 'my_auth/profile.html')
+    profile = get_object_or_404(Profile, user=request.user)
+    return render(request, 'my_auth/profile.html', {'profile': profile})

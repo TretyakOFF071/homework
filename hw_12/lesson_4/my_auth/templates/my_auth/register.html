@@ -9,7 +9,7 @@
     <main>
         <div style="margin: 0 auto; max-width: 800px">
             <h1>Registration</h1>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{user_form.as_p}}
                 {{profile_form.as_p}}

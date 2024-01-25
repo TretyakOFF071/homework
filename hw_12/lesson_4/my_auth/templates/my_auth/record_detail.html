@@ -1,13 +1,15 @@
 {% extends 'my_auth/base.html' %}
 
 {% block main %}
-  <h1>{{ record.title }}</h1>
-  <p>{{ record.description }}</p>
-  <p>Автор: {{ record.user.user.username }}</p>
-  <p>Дата публикации: {{ record.created_at }}</p>
-
-  <h2>Изображения:</h2>
-  {% for image in images %}
-    <img src="{{ image.image.url }}" width="500px" height="300px">
-  {% endfor %}
+  <div class="container d-flex flex-column">
+    <h1>{{ record.title }}</h1>
+    <p>{{ record.description }}</p>
+    <p>Автор: {{ record.user.user.username }}</p>
+    <p>Дата публикации: {{ record.created_at }}</p>
+    <h2>Изображения:</h2>
+    {% for image in images %}
+      <img src="{{ image.image.url }}" width="500px" height="300px">
+    {% endfor %}
+    <p>Дата изменений: {{ record.updated_at }} </p>
+  </div>
 {% endblock %}
