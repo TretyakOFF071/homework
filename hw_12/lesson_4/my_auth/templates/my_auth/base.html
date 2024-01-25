@@ -13,7 +13,9 @@
             {% if request.user.is_authenticated %}
                 <div class="container d-inline-flex p-2">
                     <p>Вы <a class="me-3" href="{% url 'profile' %}">{{request.user.username}}</a></p>
-                    <img src="{{ user.profile.avatar.url }}" style="width: 40px; height: 40px; border-radius: 50%">
+                    {% if user.profile.avatar %}
+                        <img src="{{ user.profile.avatar.url }}" style="width: 40px; height: 40px; border-radius: 50%">
+                    {% endif %}
                 </div>
                 <a class="me-2" href="{% url 'logout' %}">Logout</a>
             {% else %}
