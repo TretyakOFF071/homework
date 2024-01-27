@@ -1,0 +1,17 @@
+{% extends 'my_auth/base.html' %}
+
+{% block main %}
+  <div class="container d-flex flex-column">
+    <h1>Личный кабинет</h1>
+    <p>Имя пользователя: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Дата рождения: {{ user.profile.birthday }}</p>
+    <p>Телефон: {{ user.profile.tel }}</p>
+    <p>Количество публикаций: {{ user.profile.news_num }}</p>
+    {% if user.profile.avatar %}
+    <img src="{{ user.profile.avatar.url }}" width="500px" height="300px">
+    {% else %}
+      <p>No avatar provided.</p>
+    {% endif %}
+  </div>
+{% endblock %}
