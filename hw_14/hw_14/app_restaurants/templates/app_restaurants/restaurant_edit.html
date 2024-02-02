@@ -1,0 +1,11 @@
+{% extends 'app_restaurants/base.html' %}
+{% block main %}
+<div style="margin: 0 auto; width: 350px">
+  <h1>Изменить ресторан</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить изменения</button>
+  </form>
+</div>
+{% endblock %}

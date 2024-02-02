@@ -1,0 +1,12 @@
+{% extends 'app_restaurants/restaurant_list.html' %}
+
+{% block main %}
+  <div>
+    <h2>Добавить ресторан</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Добавить</button>
+    </form>
+  </div>
+{% endblock %}
