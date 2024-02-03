@@ -1,0 +1,25 @@
+{% extends 'app_restaurants/base.html' %}
+
+{% block main %}
+    <header style="margin-bottom: 45px; text-align: center">
+        <h1>Рестораны</h1>
+        <h3><a href="{% url 'restaurant_list' %}">Назад ко всем ресторанам</a></h3>
+    </header>
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        {% for restaurant in restaurants %}
+            <div style="width: 200px; padding: 10px; border: 1px solid black; text-align: center">
+                <h2>{{ restaurant.name }}</h2>
+                <p>Специализация: <b>{{ restaurant.specialization }}</b></p>
+                <p>Адрес: <b>{{ restaurant.address }}</b></p>
+                <p>Сайт: <a href="{{ restaurant.website }}">{{ restaurant.website }}</a></p>
+                <p>Телефон: <b>{{ restaurant.phone }}</b></p>
+                <button><a href="{% url 'delete_restaurant' restaurant.pk %}">Удалить</a></button>
+                <button><a href="{% url 'restaurant_edit' restaurant.pk %}">Изменить</a></button>
+            </div>
+        {% empty %}
+            <p>Нет ресторанов.</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
